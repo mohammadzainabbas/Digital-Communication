@@ -1,0 +1,19 @@
+function Task_1()
+%To generate random signal
+x = random_signal();
+
+%Calculate pdf
+[pdf1, bins1] = PDF(x1);
+
+end
+
+function x = random_signal()
+size = input('Enter signal size: ');
+x = randn(1,size);
+end
+
+
+function [pdf, bins] = PDF(x)
+bins = input('Enter number of bins: ');
+pdf = hist(x,bins)/(length(x));
+end
