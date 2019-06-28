@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1532158295 source:e:\ceme\hajra's code check\checkcode\task_1.cpp
+	<iostream>
+
+1532162938 source:e:\ceme\hajra's code check\checkcode\main.cpp
+	<iostream>
+	<cmath>
+	<cstdlib>
+	<string>
+
