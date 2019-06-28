@@ -1,0 +1,28 @@
+function qpsk()
+l=100000;
+EbNo=[4:20];
+
+
+for x=1:10
+    si=2*(round(rand(1,l))-0.5);     
+    sq=2*(round(rand(1,l))-0.5);                     
+    s=si+j*sq;                       
+    sig = sqrt(1/10^(EbNo(x)/10)); 
+    n = sig*(randn(1,l) + 1i*randn(1,l));  
+    h = (randn(1,l) + 1i*randn(1,l));
+    r=s+n;                                          
+    
+    si_=sign(real(r));                              
+    sq_=sign(imag(r));                               
+    ber1=(l-sum(si==si_))/l;                        
+    ber2=(l-sum(sq==sq_))/l;                      
+    ber(x)=mean([ber1 ber2]);                         
+end
+plot(log(ber))
+disp(ber)
+
+% semilogy(EbNodB, ber,'o-')                                 
+% xlabel('EbNo(dB)')                                    
+% ylabel('BER')                                         
+% grid on                                               
+end

@@ -1,0 +1,31 @@
+function Task_2()
+%To generate random signal
+load('cdf.mat');
+
+original_mean_of_signal = mean(x)
+original_standard_deviation = std(x)
+original_variance = var(x)
+
+
+%From CDF
+min_x = min(x);
+max_x = max(x);
+
+total_bins = 50 - 1;
+bin_size = (max_x - min_x)/total_bins;
+
+new_x = min(x):bin_size:max(x);
+
+mean_of_signal = sum((new_x).*pdf);
+variance
+end
+
+function x = random_signal()
+size = input('Enter signal size: ');
+x = randn(1,size);
+end
+
+
+function pdf = PDF(x, bins)
+pdf = hist(x,bins)/(length(x));
+end
